@@ -84,11 +84,6 @@ class Dragon(Hero):
         enemy.print_info()
 
 from random import randint
-enemies = list()
-enemies.append(Rogue_mch('Вилли', 5, 10, 10, 'меч'))
-enemies.append(Rogue_ar('Питер', 15, 15, 15, 'арбалет'))
-enemies.append(Rogue_ar('Саймон', 15, 15, 15, 'арбалет'))
-enemies.append(Rogue_mch('Нита', 20, 15, 10, 'меч'))
 
 print('Добрый день, путник')
 print('Сегодня ты отправишься в увлекательное путешествие')
@@ -119,29 +114,95 @@ print('Вы взмахиваете оружием и идёте в дорогу.
 print('')
 print('На дороге вы встречаете разбойника.')
 
-while play:
-    enemy = enemies[randint(0, len(enemies) - 1)]
-    enemy.hello()
-    enemy.print_info()
 
-    if randint(0,1) == 1:
-        fighters = [knight, enemy]
-    else:
-        fighters = [enemy, knight]
-    fighters[0].strike(fighters[1])
-    fighters[0].attack(fighters[1])
-    print('----')
-    if enemy.alive() == False:
-        print(enemy.name, 'умер от руки', knight.name)
+enemy1 = Rogue_mch('Вилли', 5, 10, 10, 'меч')
+enemy1.hello()
+answ = input('Вы готовы размять свои кости и оружие? да/нет ').lower()
+if answ == 'да':
+    while enemy1.health > 0 and knight.health > 0:
+        if randint(0,1) == 1:
+            fighters = [knight, enemy1]
+        else:
+            fighters = [enemy1, knight]
+        fighters[0].strike(fighters[1])
+        fighters[0].attack(fighters[1])
+    if enemy1.alive() == False:
+        print(enemy1.name, 'умер от руки', knight.name)
         print('Какой вопиющий пример жестокости')
-        enemies.remove(enemy)
-    if knight.alive() == False:
+    elif knight.alive() == False:
+        print('Вы бесславно погибаете, не успев достичь ничего стоящего')
+        print('Какая жалкая жизнь')
+elif answ == 'нет':
+    print('Вы переглядываетесь с разбойником и убегаете от греха подальше')
+    print('"Мальчик, что ты забыл в этом лесу?" - кричит вам вслед разбойник')
+    print('Какой позор!')
+else:
+    print('Вы невнятно пробормотали что-то')
+    print('Разбойник странно посмотрел на вас и поспешил удалиться')
+    print('Упс')
+
+print('------------')
+print('************')
+
+print('На дороге вам снова встречается разбойник')
+enemy2 = Rogue_ar('Питер', 15, 15, 15, 'арбалет')
+enemy2.hello()
+answ = input('Вы готовы размять свои кости и оружие? да/нет ').lower()
+if answ == 'да':
+    while enemy2.health > 0 and knight.health > 0:
+        if randint(0,1) == 1:
+            fighters = [knight, enemy2]
+        else:
+            fighters = [enemy2, knight]
+        fighters[0].strike(fighters[1])
+        fighters[0].attack(fighters[1])
+    if enemy2.alive() == False:
+        print(enemy2.name, 'умер от руки', knight.name)
+        print('Какой вопиющий пример жестокости')
+    elif knight.alive() == False:
         print('Вы бесславно погибаете, не успев достичь ничего стоящего')
         print('Какая жалкая жизнь.')
-        play = False
-    if len(enemies) == 0:
-        print('Вы оглядываетесь и не видите никого живого в округе')
-        print('Похоже, что вы убили всех врагов поблизости')
-        print('Пора отправляться в другое место!')
-        play = False
+elif answ == 'нет':
+    print('Вы переглядываетесь с разбойником и убегаете от греха подальше')
+    print('"Мальчик, что ты забыл в этом лесу?" - кричит вам вслед разбойник')
+    print('Какой позор!')
+else:
+    print('Вы невнятно пробормотали что-то')
+    print('Разбойник странно посмотрел на вас и поспешил удалиться')
+    print('Упс')
+
+print('------------')
+print('************')
+
+print('На дороге вам снова встречается разбойник')
+enemy4 = Rogue_mch('Нита', 20, 15, 10, 'меч')
+enemy4.hello()
+answ = input('Вы готовы размять свои кости и оружие? да/нет ').lower()
+if answ == 'да':
+    while enemy4.health > 0 and knight.health > 0:
+        if randint(0, 1) == 1:
+            fighters = [knight, enemy4]
+        else:
+            fighters = [enemy4, knight]
+        fighters[0].strike(fighters[1])
+        fighters[0].attack(fighters[1])
+    if enemy3.alive() == False:
+        print(enemy3.name, 'умер от руки', knight.name)
+        print('Какой вопиющий пример жестокости')
+    elif knight.alive() == False:
+        print('Вы бесславно погибаете, не успев достичь ничего стоящего')
+        print('Какая жалкая жизнь.')
+elif answ == 'нет':
+    print('Вы переглядываетесь с разбойником и убегаете от греха подальше')
+    print('"Мальчик, что ты забыл в этом лесу?" - кричит вам вслед разбойник')
+    print('Какой позор!')
+else:
+    print('Вы невнятно пробормотали что-то')
+    print('Разбойник странно посмотрел на вас и поспешил удалиться')
+    print('Упс')
+
+print('Вы оглядываетесь и не видите никого живого в округе')
+print('Похоже, что вы убили всех врагов поблизости')
+print('Пора отправляться в другое место!')
+
 
