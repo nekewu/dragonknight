@@ -1,3 +1,5 @@
+from random import randint
+
 class Hero():
     def __init__ (self, name, health, armor, power, weapon):
         self.name = name
@@ -20,6 +22,7 @@ class Hero():
         if enemy.armor < 0:
             enemy.health -= self.power
             enemy.armor = 0
+
 class Warrior(Hero):
     def hello(self):
         print('Из леса медленно выходит воин, пафосно взмахивая мечом')
@@ -29,6 +32,7 @@ class Warrior(Hero):
         self.print_info()
         print('Результат схватки для', enemy.name)
         enemy.print_info()
+
 class Mag(Hero):
     def hello(self):
         print('На поляне появляется маг, выходя из круга телепортации')
@@ -38,6 +42,7 @@ class Mag(Hero):
         self.print_info()
         print('Результат схватки для', enemy.name)
         enemy.print_info()
+
 class Bard(Hero):
     def hello(self):
         print('Из таверны, пьяно пошатываясь, выползает бард')
@@ -47,6 +52,7 @@ class Bard(Hero):
         self.print_info()
         print('Результат схватки для', enemy.name)
         enemy.print_info()
+
 class Rogue_ar(Hero):
     def hello(self):
         print('Мимо героя пролетает стрела, оповещая о притаившемся разбойнике')
@@ -57,6 +63,7 @@ class Rogue_ar(Hero):
         self.print_info()
         print('Результат схватки для', enemy.name)
         enemy.print_info()
+
 class Rogue_mch(Hero):
     def hello(self):
         print('Дорогу перегораживает разбойник, гнусно ухмыляясь')
@@ -67,23 +74,21 @@ class Rogue_mch(Hero):
         self.print_info()
         print('Результат схватки для', enemy.name)
         enemy.print_info()
+        
 class Dragon(Hero):
     def hello(self):
         print('Из пещеры доносятся маленькие струйки огня, и перед героем предстаёт ДРАКОН')
-    def attack_fire(self, enemy):
-        print(self.name, 'пышет огнём на', enemy.name)
-        print('Результат схватки для', self.name)
-        self.print_info()
-        print('Результат схватки для', enemy.name)
-        enemy.print_info()
-    def attack_kgt(self, enemy):
-        print(self.name, 'замахивается огромной лапой с остро поблескивающими когтями на', enemy.name)
+    def attack(self, enemy):
+        if randint(0,1) == 1:
+            print(self.name, 'пышет огнём на', enemy.name)
+        else:
+            print(self.name, 'замахивается огромной лапой с остро поблескивающими когтями на', enemy.name)
         print('Результат схватки для', self.name)
         self.print_info()
         print('Результат схватки для', enemy.name)
         enemy.print_info()
 
-from random import randint
+
 
 print('Добрый день, путник')
 print('Сегодня ты отправишься в увлекательное путешествие')
@@ -203,19 +208,10 @@ else:
 
 print('Вы оглядываетесь и не видите никого живого в округе')
 print('Похоже, что вы убили всех врагов поблизости')
-print('О боже, вы слышите каие-то звуки из пещеры, похоже, что вы разбудили дракона')
-<<<<<<< HEAD
+
+print('О боги, вы слышите каие-то звуки из пещеры, похоже, что вы разбудили дракона!')
 answ = input('Хотите ли вы сразиться с драконом? да/нет')
 if answ == 'да':
-    #драка здесь
-else:
-    print('Вы в страхе убегаете, так до конца жизни и скитаясь, боясь вся и всех.')
-    print('И это был тот самый величайший герой?')
-    print('Позор.')
-=======
-print('Хотите ли вы сразиться с драконом.да/нет')
-answ = input('Хотите ли вы сразиться с драконом? да/нет')
-if answ == 'да'
     dragon = Dragon('Арронорр', 150, 50, 10, 'когти и огонь')
     dragon.hello()
         while dragon.health > 0 and knight.health > 0:
@@ -226,24 +222,19 @@ if answ == 'да'
             fighters[0].strike(fighters[1])
             fighters[0].attack(fighters[1])
         if dragon.alive() == False:
-            print(dragon.name, 'умер от руки', knight.name)
+            print(dragon.name, 'нашел свою смерть от руки', knight.name)
             print('Какой вопиющий пример жестокости')
+            print('Вы находите сокровища дракона!')
+            print('Вы грабите логово бедного убитого вами зверя...')
+            print('И абсолютно не мучаетесь совестью.')
+            print(' ')
+            print('Но легенды гласят, что убивший дракона...')
+            print('Сам становится драконом.')
         elif knight.alive() == False:
             print('Вы бесславно погибаете, не успев достичь ничего стоящего')
             print('Какая жалкая жизнь.')
-    elif answ == 'нет':
-        print('Вы переглядываетесь с драконом и убегаете от греха подальше')
-        print('"Мальчик, что ты забыл в этом лесу?" - кричит вам вслед дракон')
-        print('Какой позор!')
-    else:
-        print('Вы невнятно пробормотали что-то')
-        print('Дракон странно посмотрел на вас и поспешил удалиться')
-        print('Упс')
-    else:
-        print('Вы в страхе убегаете, так до конца жизни и скитаясь, боясь вся и всех.')
-        print('И это был тот самый величайший герой?')
-        print('Позор.')
+else:
+    print('Вы в страхе убегаете, так до конца жизни и скитаясь, боясь вся и всех.')
+    print('И это был тот самый величайший герой?')
+    print('Позор.')
 
-
-
->>>>>>> main
