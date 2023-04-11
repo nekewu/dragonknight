@@ -191,8 +191,8 @@ if answ == 'да':
             fighters = [enemy4, knight]
         fighters[0].strike(fighters[1])
         fighters[0].attack(fighters[1])
-    if enemy3.alive() == False:
-        print(enemy3.name, 'умер от руки', knight.name)
+    if enemy4.alive() == False:
+        print(enemy4.name, 'умер от руки', knight.name)
         print('Какой вопиющий пример жестокости')
     elif knight.alive() == False:
         print('Вы бесславно погибаете, не успев достичь ничего стоящего')
